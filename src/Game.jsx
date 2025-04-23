@@ -3,7 +3,6 @@ import {
   getUniqlyRandomSentenceGenerator,
   getUniqlyRandomWordGenerator,
 } from "./WordGenerator";
-import GameMenu from "./GameMenu";
 import Countdown from "./Countdown";
 
 function GameCard({ time, mode, onFinish }) {
@@ -13,7 +12,7 @@ function GameCard({ time, mode, onFinish }) {
       : getUniqlyRandomSentenceGenerator(),
   );
 
-  console.log(mode)
+  console.log(mode);
 
   const [score, setScore] = useState(0);
   const [textValue, setTextValue] = useState("");
@@ -25,7 +24,8 @@ function GameCard({ time, mode, onFinish }) {
     const value = e.target.value;
     setTextValue(value);
 
-    if (value.trim() === currentRandomText.trim()) { setScore((prev) => prev + 1);
+    if (value.trim() === currentRandomText.trim()) {
+      setScore((prev) => prev + 1);
       setTextValue("");
       setCurrentRandomText(generatorRef.current());
     }
@@ -76,20 +76,4 @@ function GameCard({ time, mode, onFinish }) {
   );
 }
 
-function App() {
-  const [gameOptions, setGameOptions] = useState([]);
-  
-  if (gameOptions.length) {
-    return <GameCard time={gameOptions[1]} mode={gameOptions[0]} />;
-  } else {
-    return (
-      <GameMenu
-        onGameStart={(mode, time) => {
-          setGameOptions([mode, time]);
-        }}
-      />
-    );
-  }
-}
-
-export default App;
+export default GameCard
