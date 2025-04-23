@@ -7,7 +7,7 @@ function GameMenu({ onGameStart }) {
 
   return (
     <>
-      <div className="flex flex-col items-center justify-center bg-amber-600 w-screen h-screen">
+      <div className="flex flex-col items-center justify-center bg-amber-600 w-screen h-screen px-4">
         <div className="flex flex-col gap-1.5 shadow-xl shadow-gray-500 bg-whiterounded-md p-8 max-w-2xl w-full bg-white">
           <p className="font-bold text-2xl mb-4">Typer !!!</p>
           <p className="font-bold text-gray-700">Game mode</p>
@@ -49,7 +49,7 @@ function GameMenu({ onGameStart }) {
 
           <button
             class="w-full py-3 px-6 bg-amber-600 text-white rounded-lg font-semibold transition-all duration-200 hover:bg-amber-700 hover:scale-105 active:scale-95"
-            onClick={() => onGameStart(selectedGameMode, selectedTime)}
+            onClick={() => onGameStart(selectedGameMode, selectedTime, selectedCaseSensitive === "yes")}
           >
             Start Game
           </button>
@@ -59,4 +59,4 @@ function GameMenu({ onGameStart }) {
   );
 }
 
-export default GameMenu
+export default GameMenu;
