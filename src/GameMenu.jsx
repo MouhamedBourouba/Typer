@@ -6,15 +6,15 @@ function GameMenu({ onGameStart }) {
   const [selectedCaseSensitive, setSelectedCaseSensitive] = useState("yes");
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-amber-500 to-amber-700 p-4">
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-500 to-blue-700 p-4">
       <div className="w-full max-w-md bg-white rounded-2xl shadow-2xl overflow-hidden">
         {/* Header */}
-        <div className="bg-amber-700 py-6 px-8">
+        <div className="bg-blue-700 py-6 px-8">
           <h1 className="text-3xl font-extrabold text-white text-center tracking-wide">
             TYPER
-            <span className="text-yellow-200 ml-1">!!!</span>
+            <span className="text-amber-200 ml-1">!!!</span>
           </h1>
-          <p className="text-amber-100 text-center text-sm mt-1">
+          <p className="text-blue-100 text-center text-sm mt-1">
             Test your typing speed and accuracy
           </p>
         </div>
@@ -31,7 +31,7 @@ function GameMenu({ onGameStart }) {
               <select
                 value={selectedGameMode}
                 onChange={(e) => setSelectedGameMode(e.target.value)}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-50 text-gray-800 appearance-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 focus:outline-none transition-all duration-200"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-50 text-gray-800 appearance-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-none transition-all duration-200"
               >
                 <option value="sentences">Sentences</option>
                 <option value="word">Single Words</option>
@@ -52,19 +52,19 @@ function GameMenu({ onGameStart }) {
             </label>
             <div className="flex rounded-lg overflow-hidden">
               <button 
-                className={`flex-1 py-3 text-center transition-all ${selectedTime === "30" ? "bg-amber-500 text-white font-bold" : "bg-gray-100 text-gray-700 hover:bg-gray-200"}`}
+                className={`flex-1 py-3 text-center transition-all ${selectedTime === "30" ? "bg-blue-500 text-white font-bold" : "bg-gray-100 text-gray-700 hover:bg-gray-200"}`}
                 onClick={() => setSelectedTime("30")}
               >
                 30s
               </button>
               <button 
-                className={`flex-1 py-3 text-center transition-all ${selectedTime === "60" ? "bg-amber-500 text-white font-bold" : "bg-gray-100 text-gray-700 hover:bg-gray-200"}`}
+                className={`flex-1 py-3 text-center transition-all ${selectedTime === "60" ? "bg-blue-500 text-white font-bold" : "bg-gray-100 text-gray-700 hover:bg-gray-200"}`}
                 onClick={() => setSelectedTime("60")}
               >
                 60s
               </button>
               <button 
-                className={`flex-1 py-3 text-center transition-all ${selectedTime === "120" ? "bg-amber-500 text-white font-bold" : "bg-gray-100 text-gray-700 hover:bg-gray-200"}`}
+                className={`flex-1 py-3 text-center transition-all ${selectedTime === "120" ? "bg-blue-500 text-white font-bold" : "bg-gray-100 text-gray-700 hover:bg-gray-200"}`}
                 onClick={() => setSelectedTime("120")}
               >
                 120s
@@ -80,13 +80,13 @@ function GameMenu({ onGameStart }) {
             </label>
             <div className="flex bg-gray-100 rounded-lg p-1">
               <button
-                className={`flex-1 py-2 rounded-md transition-all ${selectedCaseSensitive === "no" ? "bg-white shadow-md font-medium text-amber-600" : "text-gray-500 hover:text-gray-700"}`}
+                className={`flex-1 py-2 rounded-md transition-all ${selectedCaseSensitive === "no" ? "bg-white shadow-md font-medium text-blue-600" : "text-gray-500 hover:text-gray-700"}`}
                 onClick={() => setSelectedCaseSensitive("no")}
               >
                 No
               </button>
               <button
-                className={`flex-1 py-2 rounded-md transition-all ${selectedCaseSensitive === "yes" ? "bg-white shadow-md font-medium text-amber-600" : "text-gray-500 hover:text-gray-700"}`}
+                className={`flex-1 py-2 rounded-md transition-all ${selectedCaseSensitive === "yes" ? "bg-white shadow-md font-medium text-blue-600" : "text-gray-500 hover:text-gray-700"}`}
                 onClick={() => setSelectedCaseSensitive("yes")}
               >
                 Yes
@@ -96,7 +96,7 @@ function GameMenu({ onGameStart }) {
 
           {/* Start Button */}
           <button
-            className="w-full py-4 mt-6 bg-gradient-to-r from-amber-500 to-amber-600 text-white rounded-lg font-bold text-lg transition-all duration-200 hover:shadow-lg hover:from-amber-600 hover:to-amber-700 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 transform hover:-translate-y-1 active:translate-y-0"
+            className="w-full py-4 mt-6 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-lg font-bold text-lg transition-all duration-200 hover:shadow-lg hover:from-blue-600 hover:to-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transform hover:-translate-y-1 active:translate-y-0"
             onClick={() => onGameStart(selectedGameMode, selectedTime, selectedCaseSensitive === "yes")}
           >
             START GAME

@@ -74,7 +74,7 @@ function GameCard({ time, mode, caseSensitive, onFinish }) {
                     ? "text-green-600 bg-green-50"
                     : "text-red-600 bg-red-50"
                   : index === enteredChars.length
-                  ? "text-gray-800 bg-amber-100 animate-pulse"
+                  ? "text-gray-800 bg-blue-200 animate-pulse"
                   : "text-gray-600"
               } ${
                 isTyped ? "font-bold" : ""
@@ -95,14 +95,14 @@ function GameCard({ time, mode, caseSensitive, onFinish }) {
           {/* Header with stats */}
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center space-x-2">
-              <div className="bg-amber-100 p-2 rounded-lg">
-                <span className="font-bold text-amber-800">{score}</span>
+              <div className="bg-blue-100 p-2 rounded-lg">
+                <span className="font-bold text-blue-800">{score}</span>
               </div>
               <span className="text-gray-600 font-medium">Score</span>
             </div>
             
             <div className="flex items-center space-x-2">
-              <div className="bg-amber-600 text-white px-3 py-1 rounded-lg font-bold">
+              <div className="bg-blue-600 text-white px-3 py-1 rounded-lg font-bold">
                 <Countdown
                   time={time}
                   onFinish={() => {
@@ -133,7 +133,7 @@ function GameCard({ time, mode, caseSensitive, onFinish }) {
           <div className="relative mt-2">
             <input
               ref={inputRef}
-              className="w-full p-4 border-2 rounded-lg focus:outline-none transition-all duration-200 bg-white text-gray-800 border-amber-200 focus:border-amber-500 focus:shadow-md font-mono text-lg"
+              className="w-full p-4 border-2 rounded-lg focus:outline-none transition-all duration-200 bg-white text-gray-800 border-blue-200 focus:border-blue-500 focus:shadow-md font-mono text-lg"
               placeholder="Type here..."
               dir="ltr"
               type="text"

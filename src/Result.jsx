@@ -26,16 +26,16 @@ function ResultCard({ results, onStartAgain }) {
             label="WPM" 
             value={wpm} 
             icon="⚡" 
-            bgColor="bg-blue-50" 
-            textColor="text-blue-600"
+            bgColor="bg-cyan-50" 
+            textColor="text-cyan-600"
             description="Words per minute" 
           />
           <StatCard 
             label="Raw WPM" 
             value={rawWpm} 
+            textColor="text-blue-600"
             icon="⚡" 
             bgColor="bg-blue-50" 
-            textColor="text-blue-600"
             description="Words per minute includes mistakes" 
           />
           <StatCard 
@@ -67,7 +67,7 @@ function ResultCard({ results, onStartAgain }) {
         <div className="w-full mt-2">
           <button
             onClick={onStartAgain}
-            className="w-full py-4 px-6 bg-gradient-to-r from-amber-500 to-amber-600 text-white rounded-xl font-medium text-lg transition-all duration-200 hover:shadow-lg hover:from-amber-600 hover:to-amber-700 active:scale-98 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2"
+            className="w-full py-4 px-6 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-xl font-medium text-lg transition-all duration-200 hover:shadow-lg hover:from-blue-600 hover:to-blue-700 active:scale-98 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
           >
             Play Again
           </button>
@@ -79,7 +79,7 @@ function ResultCard({ results, onStartAgain }) {
 
 function StatCard({ label, value, icon, bgColor, textColor, description }) {
   return (
-    <div className={`flex flex-col items-center rounded-xl p-3 ${bgColor}`}>
+    <div className={`flex flex-col items-center rounded-xl p-3 ${bgColor} shadow-inner shadow-gray-200`}>
       <div className="flex items-center mb-1">
         <span className="mr-1">{icon}</span>
         <span className="text-sm font-medium text-gray-600">{label}</span>
