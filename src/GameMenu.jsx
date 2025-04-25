@@ -7,7 +7,7 @@ function GameMenu({ onGameStart }) {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-500 to-blue-700 p-4">
-      <div className="w-full max-w-md bg-white rounded-2xl shadow-2xl overflow-hidden">
+      <div className="w-full max-w-md bg-white rounded-2xl shadow-2xl shadow-gray-900 overflow-hidden">
         {/* Header */}
         <div className="bg-blue-700 py-6 px-8">
           <h1 className="text-3xl font-extrabold text-white text-center tracking-wide">
