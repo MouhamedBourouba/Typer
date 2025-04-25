@@ -7,6 +7,9 @@ function ResultCard({ results, onStartAgain }) {
   const wpm = Math.round(
     results.numberOfCorrectChars / 5 / (results.time / 60),
   );
+  const rawWpm = Math.round(
+    results.numberOfChars / 5 / (results.time / 60),
+  );
 
   return (
     <Card className="p-6 max-w-md mx-auto shadow-2xl rounded-2xl bg-white text-gray-800">
@@ -17,6 +20,7 @@ function ResultCard({ results, onStartAgain }) {
 
         <div className="w-full grid grid-cols-2 gap-y-3 gap-x-4 text-center text-lg">
           <Stat label="WPM" value={wpm} color="green" />
+          <Stat label="Raw WPM" value={rawWpm} color="green" />
           <Stat label="Score" value={results.score} color="green" />
           <Stat label="Mistakes" value={results.errors} color="red" />
           <Stat label="Accuracy" value={`${accuracy}%`} color="green" />
