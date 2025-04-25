@@ -21,8 +21,6 @@ function GameCard({ time, mode, caseSensitive, onFinish }) {
   const [currentRandomText, setCurrentRandomText] = useState(() =>
     generatorRef.current(),
   );
-  const [streakCount, setStreakCount] = useState(0);
-  const [showStreak, setShowStreak] = useState(false);
 
   useEffect(() => {
     inputRef.current?.focus();
@@ -45,16 +43,11 @@ function GameCard({ time, mode, caseSensitive, onFinish }) {
       setScore((prev) => prev + 1);
       setTextValue("");
       setCurrentRandomText(generatorRef.current());
-      
-      setStreakCount(prev => prev + 1);
-      setShowStreak(true);
-      setTimeout(() => setShowStreak(false), 1000);
     } else if (typedChar !== undefined) {
       if (isCorrectChar) {
         numberOfCorrectCharsWritten.current += 1;
       } else {
         numberOfErrors.current += 1;
-        setStreakCount(0);
       }
     }
     numberOfCharsWritten.current += 1;
@@ -97,12 +90,6 @@ function GameCard({ time, mode, caseSensitive, onFinish }) {
 
   return (
     <div className="relative">
-      {showStreak && streakCount > 1 && (
-        <div className="absolute -top-12 right-0 bg-amber-500 text-white px-3 py-1 rounded-full shadow-lg animate-bounce">
-          {streakCount} streak! 🔥
-        </div>
-      )}
-      
       <Card className="p-8 shadow-xl rounded-xl bg-white">
         <div className="flex flex-col">
           {/* Header with stats */}
