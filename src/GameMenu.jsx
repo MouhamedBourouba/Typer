@@ -3,7 +3,7 @@ import { useState } from "react";
 function GameMenu({ onGameStart }) {
   const [selectedGameMode, setSelectedGameMode] = useState("sentences");
   const [selectedTime, setSelectedTime] = useState("60");
-  const [selectedCaseSensitive, setSelectedCaseSensitive] = useState("no");
+  const [selectedCaseSensitive, setSelectedCaseSensitive] = useState("yes");
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-amber-500 to-amber-700 p-4">
