@@ -58,7 +58,7 @@ function GameCard({ time, mode, caseSensitive, onFinish }) {
     let enteredChars = textValue.split("");
     
     return (
-      <div className="font-mono text-xl my-6 max-w-lg mx-auto bg-gray-50 p-4 rounded-lg shadow-inner">
+      <div className="font-mono text-xl my-6 max-w-lg mx-auto bg-gray-50 p-4 rounded-lg border-blue-600 border-1">
         {characterList.map((item, index) => {
           const isTyped = index < enteredChars.length;
           const isCorrect = caseSensitive 
@@ -72,7 +72,7 @@ function GameCard({ time, mode, caseSensitive, onFinish }) {
                 isTyped
                   ? isCorrect
                     ? "text-green-600 bg-green-50"
-                    : "text-red-600 bg-red-50"
+                    : "text-red-600 bg-red-50 underline"
                   : index === enteredChars.length
                   ? "text-gray-800 bg-blue-200 animate-pulse"
                   : "text-gray-600"
@@ -95,8 +95,8 @@ function GameCard({ time, mode, caseSensitive, onFinish }) {
           {/* Header with stats */}
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center space-x-2">
-              <div className="bg-blue-100 p-2 rounded-lg">
-                <span className="font-bold text-blue-800">{score}</span>
+              <div className="bg-blue-100 rounded-lg">
+                <span className="font-bold bg-blue-200 rounded-md p-1.5 text-blue-800">{score}</span>
               </div>
               <span className="text-gray-600 font-medium">Score</span>
             </div>
