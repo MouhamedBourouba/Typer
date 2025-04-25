@@ -6,56 +6,104 @@ function GameMenu({ onGameStart }) {
   const [selectedCaseSensitive, setSelectedCaseSensitive] = useState("no");
 
   return (
-    <>
-      <div className="flex flex-col items-center justify-center bg-amber-600 w-screen h-screen px-4">
-        <div className="flex flex-col gap-1.5 shadow-xl shadow-gray-500 bg-whiterounded-md p-8 max-w-2xl w-full bg-white">
-          <p className="font-bold text-2xl mb-4">Typer !!!</p>
-          <p className="font-bold text-gray-700">Game mode</p>
-          <div className="w-full mx-auto">
-            <select
-              value={selectedGameMode}
-              onChange={(e) => setSelectedGameMode(e.target.value)}
-              className="w-full px-2 py-2 border border-gray-300 rounded-md shadow-sm text-gray-700 focus:outline-none "
-            >
-              <option value="sentences">Sentences</option>
-              <option value="word">Single Words</option>
-            </select>
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-amber-500 to-amber-700 p-4">
+      <div className="w-full max-w-md bg-white rounded-2xl shadow-2xl overflow-hidden">
+        {/* Header */}
+        <div className="bg-amber-700 py-6 px-8">
+          <h1 className="text-3xl font-extrabold text-white text-center tracking-wide">
+            TYPER
+            <span className="text-yellow-200 ml-1">!!!</span>
+          </h1>
+          <p className="text-amber-100 text-center text-sm mt-1">
+            Test your typing speed and accuracy
+          </p>
+        </div>
+
+        {/* Form Content */}
+        <div className="p-8 space-y-6">
+          {/* Game Mode */}
+          <div className="space-y-2">
+            <label className="flex items-center text-gray-700 font-bold text-sm">
+              <span className="mr-2">🎮</span>
+              Game Mode
+            </label>
+            <div className="relative">
+              <select
+                value={selectedGameMode}
+                onChange={(e) => setSelectedGameMode(e.target.value)}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-50 text-gray-800 appearance-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 focus:outline-none transition-all duration-200"
+              >
+                <option value="sentences">Sentences</option>
+                <option value="word">Single Words</option>
+              </select>
+              <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-gray-700">
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd"></path>
+                </svg>
+              </div>
+            </div>
           </div>
 
-          <p className="font-bold text-gray-700">Select time</p>
-          <div className="w-full mx-auto">
-            <select
-              value={selectedTime}
-              onChange={(e) => setSelectedTime(e.target.value)}
-              className="w-full ps-2 py-2 border border-gray-300 rounded-md shadow-sm text-gray-700 focus:outline-none"
-            >
-              <option value="120">120 seconds</option>
-              <option value="60">60 seconds</option>
-              <option value="30">30 seconds</option>
-            </select>
+          {/* Time Selection */}
+          <div className="space-y-2">
+            <label className="flex items-center text-gray-700 font-bold text-sm">
+              <span className="mr-2">⏱️</span>
+              Time Limit
+            </label>
+            <div className="flex rounded-lg overflow-hidden">
+              <button 
+                className={`flex-1 py-3 text-center transition-all ${selectedTime === "30" ? "bg-amber-500 text-white font-bold" : "bg-gray-100 text-gray-700 hover:bg-gray-200"}`}
+                onClick={() => setSelectedTime("30")}
+              >
+                30s
+              </button>
+              <button 
+                className={`flex-1 py-3 text-center transition-all ${selectedTime === "60" ? "bg-amber-500 text-white font-bold" : "bg-gray-100 text-gray-700 hover:bg-gray-200"}`}
+                onClick={() => setSelectedTime("60")}
+              >
+                60s
+              </button>
+              <button 
+                className={`flex-1 py-3 text-center transition-all ${selectedTime === "120" ? "bg-amber-500 text-white font-bold" : "bg-gray-100 text-gray-700 hover:bg-gray-200"}`}
+                onClick={() => setSelectedTime("120")}
+              >
+                120s
+              </button>
+            </div>
           </div>
 
-          <p className="font-bold text-gray-700">Case sensitive</p>
-          <div className="w-full mx-auto mb-4">
-            <select
-              value={selectedCaseSensitive}
-              onChange={(e) => setSelectedCaseSensitive(e.target.value)}
-              className="w-full px-2 py-2 border border-gray-300 rounded-md shadow-sm text-gray-700 focus:outline-none"
-            >
-              <option value="yes">yes</option>
-              <option value="no">no</option>
-            </select>
+          {/* Case Sensitive */}
+          <div className="space-y-2">
+            <label className="flex items-center text-gray-700 font-bold text-sm">
+              <span className="mr-2">Aa</span>
+              Case Sensitive
+            </label>
+            <div className="flex bg-gray-100 rounded-lg p-1">
+              <button
+                className={`flex-1 py-2 rounded-md transition-all ${selectedCaseSensitive === "no" ? "bg-white shadow-md font-medium text-amber-600" : "text-gray-500 hover:text-gray-700"}`}
+                onClick={() => setSelectedCaseSensitive("no")}
+              >
+                No
+              </button>
+              <button
+                className={`flex-1 py-2 rounded-md transition-all ${selectedCaseSensitive === "yes" ? "bg-white shadow-md font-medium text-amber-600" : "text-gray-500 hover:text-gray-700"}`}
+                onClick={() => setSelectedCaseSensitive("yes")}
+              >
+                Yes
+              </button>
+            </div>
           </div>
 
+          {/* Start Button */}
           <button
-            class="w-full py-3 px-6 bg-amber-600 text-white rounded-lg font-semibold transition-all duration-200 hover:bg-amber-700 hover:scale-105 active:scale-95"
+            className="w-full py-4 mt-6 bg-gradient-to-r from-amber-500 to-amber-600 text-white rounded-lg font-bold text-lg transition-all duration-200 hover:shadow-lg hover:from-amber-600 hover:to-amber-700 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 transform hover:-translate-y-1 active:translate-y-0"
             onClick={() => onGameStart(selectedGameMode, selectedTime, selectedCaseSensitive === "yes")}
           >
-            Start Game
+            START GAME
           </button>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
