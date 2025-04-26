@@ -92,7 +92,6 @@ function GameCard({ time, mode, caseSensitive, onFinish }) {
     <div className="relative">
       <Card className="p-8 shadow-xl rounded-xl bg-white">
         <div className="flex flex-col">
-          {/* Header with stats */}
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center space-x-2">
               <div className="bg-blue-100 rounded-lg">

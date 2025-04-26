@@ -79,7 +79,7 @@ function ResultCard({ results, onStartAgain }) {
 
 function StatCard({ label, value, icon, bgColor, textColor, description }) {
   return (
-    <div className={`flex flex-col items-center rounded-xl p-3 ${bgColor} shadow-inner shadow-gray-200`}>
+    <div className={`flex flex-col items-center rounded-xl p-3 ${bgColor} border-blue-300 border-1`}>
       <div className="flex items-center mb-1">
         <span className="mr-1">{icon}</span>
         <span className="text-sm font-medium text-gray-600">{label}</span>
